@@ -1,0 +1,122 @@
+@import "./../bower_components/bootstrap/less/bootstrap.less";
+
+/* *-min vars dep'd in 3.0.1 */
+@screen-sm-min: 788px;
+@screen-md-min: 1192px;
+@screen-lg-min: 1580px;
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+  .container {
+    width: 800px;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+  .container {
+    width: 1570px;
+  }
+}
+
+@grid-columns:              12;
+@grid-gutter-width:         30px;
+@grid-float-breakpoint:     788px;
+
+.img-retina(@file-1x; @file-2x; @width-1x; @height-1x) {
+  background-image: url("@{file-1x}");
+
+  @media
+  only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (   min--moz-device-pixel-ratio: 2),
+  only screen and (     -o-min-device-pixel-ratio: 2/1),
+  only screen and (        min-device-pixel-ratio: 2),
+  only screen and (                min-resolution: 192dpi),
+  only screen and (                min-resolution: 2dppx) {
+    background-image: url("@{file-2x}");
+    background-size: @width-1x @height-1x;
+  }
+}
+
+.col {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.row {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+article {
+    height: 230px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    border: 5px solid black;
+    border-radius: 12px;
+    hgroup {
+	position: relative;
+	height: 80px;
+	margin: 10px 0;
+    }
+    dl {
+	position: absolute;
+	right: 45px;
+	top: 80px;
+    }
+    dt {
+	font-size: 90%;
+	color: #ccc;
+	line-height: 75%;
+	margin-bottom: 5px;
+	font-weight: 100;
+	text-align: right;
+    }
+    dd {
+	text-align: right;
+	font-weight: bold;
+	font-size: 1.1em;
+    }
+    .conversions {
+	color: orange;
+    }
+    .impressions {
+	color: lightblue;
+    }
+    .revenue {
+	color: green;
+    }
+    .avatar {
+	float: left;
+    }
+    .img_avatar {
+	width: 80px;
+	padding-right: 10px;
+    }
+    .span_avatar {
+	line-height: 80px;
+	font-size: 80px;
+	padding-right: 10px;
+    }
+    .name {
+	padding: 10px 0 0;
+	margin: 0;
+	font-size: 25px;
+    }
+    .occupation {
+	padding-left: 10px;
+	color: #ccc;
+	font-weight: bold;
+    }
+    footer {
+	padding-left: 60px;
+    }
+}

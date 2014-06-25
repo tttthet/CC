@@ -1,0 +1,45 @@
+!!!
+head
+meta(charset="utf-8")
+meta(http-equiv="X-UA-Compatible", content="IE=edge")
+meta(name="viewport", content="width=device-width, initial-scale=1")
+title #{title}
+link(href="css/bootstrap.min.css", rel="stylesheet")
+link(href="style.css", rel="stylesheet")
+!="<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->"
+!="<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->"
+!="<!--[if lt IE 9]>"
+!="    <![endif]-->"
+body
+  .container
+    .row(data-bind="foreach: $data")
+      .col.col-xs-12.col-sm-6.col-md-4.col-lg-3
+        article
+          hgroup
+            !="<!-- ko if: avatar === '' -->"
+            span.avatar.span_avatar(data-bind="text: name.substr(0, 1)")
+            !="<!-- /ko -->"
+            !="<!-- ko if: avatar !== '' -->"
+            img.img-circle.img_avatar.avatar(data-bind="attr: { src: avatar }", alt="Avatar")
+            !="<!-- /ko -->"
+            h2.name(data-bind="text: name")
+            span.occupation(data-bind="text: occupation")
+
+          !="<!-- ko if: graph_loaded -->"
+          dl
+            dd.conversions(data-bind="text: total_conversions")
+            dt conversions
+            dd.impressions(data-bind="text: total_impressions")
+            dt impressions
+            dd.revenue(data-bind="text: formatted_total_revenue")
+
+          canvas(width="230", height="80", data-bind="chart: graph")
+          footer(data-bind="text: graph_range")
+          !="<!-- /ko -->"
+
+  script(src="jquery.min.js")
+  script(src="js/bootstrap.min.js")
+  script(src="http://cdnjs.cloudflare.com/ajax/libs/knockout/3.1.0/knockout-min.js")
+  script(src="http://www.chartjs.org/docs/Chart.js")
+  script(src="users.js")
+  script(src="app.js")
