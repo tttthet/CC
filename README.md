@@ -5,3 +5,4 @@ CC
 - cd CC
 - npm install
 - node --harmony app.js
+- localhost:3000
