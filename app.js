@@ -9,7 +9,7 @@ app.use(serve('bower_components/bootstrap/dist'));
 app.use(serve('bower_components/jquery/dist'));
 
 var views = require('koa-views');
-app.use(views({
+app.use(views('static', {
   default: 'jade',
   cache: false
 }));
